@@ -14,7 +14,7 @@
     "test-cypress": "DB_PATH=./db/game.sqlite cypress open",
     "typecheck": "tsc",
     "typecheck:watch": "tsc --watch",
-    "build": "next build",
+    "build": "npm run compile && npm run templates && npm run webpack && npm run lint",
     "build:ci": "DB_PATH=./db/game.sqlite npm run build",
     "start": "DB_PATH=./db/game.sqlite next start -p $PORT",
     "format": "prettier --write src",
