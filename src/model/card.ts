@@ -2706,6 +2706,26 @@ const CARD_REGISTRY: Record<CardName, Card> = {
               selectedPlayer: null,
             },
           });
+          player.gainResources(gameState, { [ResourceType.BERRY]: 3 });
+          const chapelInfo = player.getPlayedCardInfos(CardName.CHAPEL);
+          if (chapelInfo.length > 0) {
+            const chapel = chapelInfo[0].resources;
+            if (!chapel) {
+              throw new Error("invalid chapel card info");
+            }
+
+            const numVP = chapel[ResourceType.VP] || 0;
+            player.gainResources(gameState, { [ResourceType.VP]: numVP });
+            gameState.addGameLogFromCard(CardName.SHEPHERD, [
+              player,
+              ` gained 3 BERRY and ${numVP} VP.`,
+            ]);
+          } else {
+            gameState.addGameLogFromCard(CardName.SHEPHERD, [
+              player,
+              ` gained 3 BERRY.`,
+            ]);
+          }
         } else {
           player.gainResources(gameState, { [ResourceType.BERRY]: 3 });
           const chapelInfo = player.getPlayedCardInfos(CardName.CHAPEL);

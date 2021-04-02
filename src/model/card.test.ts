@@ -4042,7 +4042,7 @@ describe("Card", () => {
         player1.gainResources(gameState, card.baseCost);
         player1.addCardToHand(gameState, card.name);
         expect(player1.getNumResourcesByType(ResourceType.BERRY)).to.be(3);
-        expect(player2.getNumResourcesByType(ResourceType.BERRY)).to.be(0);
+        expect(player2.getNumResourcesByType(ResourceType.BERRY)).to.be(3);
 
         [player, gameState] = multiStepGameInputTest(gameState, [
           playCardInput(card.name),
