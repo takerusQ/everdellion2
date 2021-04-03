@@ -16,10 +16,10 @@
     "typecheck:watch": "tsc --watch",
     "build": "npm run compile && npm run templates && npm run webpack && npm run lint",
     "build:ci": "DB_PATH=./db/game.sqlite npm run build",
-    "cacheDirectories":　".next/cache",
     "start": "next start -p $PORT",
     "format": "prettier --write src",
     "format:ci": "prettier --check src",
+    "cacheDirectories": ".next/cache",
     "lint": "eslint src --quiet --ext .ts,tsx"
   },
   "dependencies": {
