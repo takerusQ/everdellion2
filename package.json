@@ -14,12 +14,11 @@
     "test-cypress": "DB_PATH=./db/game.sqlite cypress open",
     "typecheck": "tsc",
     "typecheck:watch": "tsc --watch",
-    "build": "npm run compile && npm run templates && npm run webpack && npm run lint",
+    "build": "next build",
     "build:ci": "DB_PATH=./db/game.sqlite npm run build",
-    "start": "next start -p $PORT",
+    "start": "DB_PATH=./db/game.sqlite next start -p $PORT",
     "format": "prettier --write src",
     "format:ci": "prettier --check src",
-    "cacheDirectories": ".next/cache",
     "lint": "eslint src --quiet --ext .ts,tsx"
   },
   "dependencies": {
