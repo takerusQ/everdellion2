@@ -15,7 +15,7 @@
     "typecheck": "tsc",
     "typecheck:watch": "tsc --watch",
     "cacheDirectories": ".next/cache",
-    "build": "npm run compile && npm run templates && npm run webpack && npm run lint",
+    "build": "next build",
     "build:ci": "DB_PATH=./db/game.sqlite npm run build",
     "start": "DB_PATH=./db/game.sqlite next start -p $PORT",
     "format": "prettier --write src",
